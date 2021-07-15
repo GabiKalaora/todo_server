@@ -10,6 +10,10 @@ class Client:
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def send_msg(self):
+        """
+        wait until client inserts a command
+        :return:
+        """
         while True:
             self.sock.send(bytes(input(''), FORMAT))
 
@@ -18,6 +22,11 @@ class Client:
         self.PORT = PORT
         self.sock.connect((self.CLIENT_ADDRESS, self.PORT))
 
+    def run(self):
+        """
+        asks for input from client and waits until client inserts a command
+        inorder that waiting for command will not block the entire process
+        """
         i_thread = threading.Thread(target=self.send_msg)
         i_thread.daemon = True
         i_thread.start()
@@ -29,4 +38,6 @@ class Client:
             print(str(data, FORMAT))
 
 
-client = Client()
+if __name__ == '__main__':
+    client = Client()
+    client.run()
