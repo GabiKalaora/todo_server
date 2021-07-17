@@ -4,7 +4,6 @@ import threading
 FORMAT = 'utf-8'
 PORT = 9000
 MAX_LEN_MSG = 1024
-ADDRESS = '192.168.56.1'
 
 
 class Client:
