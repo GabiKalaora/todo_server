@@ -4,6 +4,7 @@ import threading
 FORMAT = 'utf-8'
 PORT = 9000
 MAX_LEN_MSG = 1024
+ADDRESS = '192.168.56.1'
 
 
 class Client:
@@ -18,9 +19,9 @@ class Client:
             self.sock.send(bytes(input(''), FORMAT))
 
     def __init__(self):
-        self.CLIENT_ADDRESS = socket.gethostbyname(socket.gethostname())
+        self.ADDRESS = socket.gethostbyname(socket.gethostname())
         self.PORT = PORT
-        self.sock.connect((self.CLIENT_ADDRESS, self.PORT))
+        self.sock.connect((self.ADDRESS, self.PORT))
 
     def run(self):
         """
