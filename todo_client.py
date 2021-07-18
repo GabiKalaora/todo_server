@@ -20,13 +20,13 @@ class Client:
     def __init__(self):
         self.ADDRESS = socket.gethostbyname(socket.gethostname())
         self.PORT = PORT
-        self.sock.connect((self.ADDRESS, self.PORT))
 
     def run(self):
         """
         asks for input from client and waits until client inserts a command
         inorder that waiting for command will not block the entire process
         """
+        self.sock.connect((self.ADDRESS, self.PORT))
         i_thread = threading.Thread(target=self.send_msg)
         i_thread.daemon = True
         i_thread.start()
