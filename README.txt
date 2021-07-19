@@ -1,4 +1,4 @@
-Todo server assignment:
+Todo server:
 
 To run the program, run todo_server.py script (to activate server), 
 while server is running, run todo_client.py a CLI should open, valid commands are:
